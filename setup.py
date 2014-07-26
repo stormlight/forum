@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 
 import re
@@ -14,7 +13,6 @@ app_name = 'stormlight'
 code = open(app_name + '/__init__.py', 'r').read(1000)
 version = re.search(r'__version__ = \'([^\']*)\'', code).group(1)
 authors = eval(re.search(r'__authors__ = (\[[^\]\[]*\])', code).group(1))
-
 
 # read requirements
 parsed_req = parse_requirements('requirements.txt')

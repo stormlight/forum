@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 
 from stormlight import app, pg
@@ -29,9 +28,6 @@ def create():
 @pg_manager.command
 def drop():
     """Drops all PostgreSQL tables.
-
-    .. warning::
-        Use this command wisely! The droped data is unlikely to be restored.
 
     .. code-block:: bash
 
