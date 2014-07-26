@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 
 #: Version number. Consists of three digits:
@@ -46,8 +45,8 @@ logutils.init_app(app)
 
 # Import all packages
 
-from . import views  # noqa
-from . import packages
+import views  # noqa
+import packages
 
 disabled = app.config.get('DISABLED_PACKAGES')
 submodules = ['views', 'models', 'tasks']
