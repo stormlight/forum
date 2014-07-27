@@ -45,8 +45,8 @@ logutils.init_app(app)
 
 # Import all packages
 
-import views  # noqa
-import packages
+from . import views  # noqa
+from . import packages
 
 disabled = app.config.get('DISABLED_PACKAGES')
 submodules = ['views', 'models', 'tasks']
