@@ -1,6 +1,6 @@
 
 
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, flash
 
 from . import groups
 from .models import Group
@@ -26,5 +26,7 @@ def create():
         )
         with pg.summon() as session:
             session.add(group)
+
+        flash('New group has been successfully created.')
         return redirect(url_for('groups.list'))
     return render_template('groups_create.html', form=form)

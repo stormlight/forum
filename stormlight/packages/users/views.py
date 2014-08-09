@@ -1,6 +1,6 @@
 
 
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, flash
 
 from stormlight.packages.groups.models import Group
 from stormlight import pg
@@ -29,13 +29,18 @@ def signup():
     form = SignupForm()
     if form.validate_on_submit():
         group = Group.query.filter(Group.name == 'Member').first()
-        user = User(
-            username=form.username.data, 
-            email=form.email.data, 
-            password=form.password.data, 
-            group=group
-        )
-        with pg.summon() as session:
-            session.add(user)
-        return redirect(url_for('homepage'))
+        if group is not None:
+            user = User(
+                username=form.username.data, 
+                email=form.email.data, 
+                password=form.password.data, 
+                group=group
+            )
+            with pg.summon() as session:
+                session.add(user)
+
+            flash('Your account has been successfully created.', 'success')
+            return redirect(url_for('homepage'))
+        else:
+            flash('There is no group with name "Member" in the database.', 'error')
     return render_template('users_signup.html', form=form)

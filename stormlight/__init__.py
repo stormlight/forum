@@ -47,6 +47,7 @@ logutils.init_app(app)
 
 from . import views  # noqa
 from . import packages
+from . import filters
 
 disabled = app.config.get('DISABLED_PACKAGES')
 submodules = ['views', 'models', 'tasks']
