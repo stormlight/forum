@@ -1,0 +1,10 @@
+{% from '_macros.html' import forum_form%}
+
+{% extends 'base.html' %}
+
+
+{% block  content %}
+<h1>Forums</h1>
+<h2>Update Forum</h2>
+{{ forum_form(form, true) }}
+{% endblock %}

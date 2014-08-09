@@ -1,0 +1,21 @@
+{% macro forum_form(form, update) %}
+<form if="forum-form" role="form" method="POST">
+  {{ form.csrf_token }}
+
+  {{ f.text_input(form.title, form.errors.tile) }}
+  {{ f.text_input(form.description, form.errors.description) }}
+  {{ f.checkbox(form.container, form.errors.container) }}
+
+  {% if update %}
+    {{ f.submit('Update Forum') }}
+  {% else %}
+    {{ f.submit('Create Forum') }}
+  {% endif %}
+</form>
+{% endmacro %}
+
+{% macro forum_delete_form(forum) %}
+<form id="forum-delete-form" class="form-inline " role="form" method="POST" action="{{ url_for('.delete', id=forum.id) }}">
+  {{ f.submit('Delete Forum') }}
+</form>
+{% endmacro %}
