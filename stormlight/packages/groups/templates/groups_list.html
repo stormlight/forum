@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Groups</h1>
+<a href="{{ url_for('groups.create') }}" class="btn btn-primary">Create Group</a>
+
+{% if groups.first() %}
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+</thead>
+<tbody>
+  {% for group in groups %}
+  <tr>
+    <td>{{ group.id }}</td>
+    <td>{{ group.name }}</td>
+    <td>{{ group.description }}</td>
+  </tr>
+  {% endfor %}
+</tbody>
+</table>
+{% else %}
+<div>There are no groups at the moment.</div>
+{% endif %}
+{% endblock %}

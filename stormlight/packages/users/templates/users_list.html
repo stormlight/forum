@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Users</h1>
+{% if users.first() %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Username</th>
+      <th>Email Address</th>
+      <th>Group</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+    <tr>
+      <td>{{ user.id }}</td>
+      <td><a href="{{ url_for('users.view', id=user.id) }}">{{ user.username }}</a></td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.group.name }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+  <p>There are no users at the moment.</p>
+{% endif %}
+{% endblock %}

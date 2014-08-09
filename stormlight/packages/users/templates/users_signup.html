@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Sign up</h1>
+<div>
+<form id="signup-form" role="form" method="POST">
+  {{ form.csrf_token }}
+
+  <div class="form-group {% if form.errors.username %} has-error {% endif %}">
+    {{ form.username.label(class='control-label') }}
+    {{ form.username(class='form-control', placeholder=form.username.label.text) }}
+    {% for error in form.errors.username %}
+      <span class="help-block">{{ error }}</span>
+    {% endfor %}
+  </div>
+
+
+  <div class="form-group {% if form.errors.email %} has-error {% endif %}">
+    {{ form.email.label(class='control-label') }}
+    {{ form.email(class='form-control', placeholder=form.email.label.text) }}
+    {% for error in form.errors.email %}
+      <span class="help-block">{{ error }}</span>
+    {% endfor %}
+  </div>
+
+  <div class="form-group {% if form.errors.repeat_email %} has-error {% endif %}">
+    {{ form.repeat_email.label(class='control-label') }}
+    {{ form.repeat_email(class='form-control', placeholder=form.repeat_email.label.text) }}
+    {% for error in form.errors.repeat_email %}
+      <span class="help-block">{{ error }}</span>
+    {% endfor %}
+  </div>
+
+  <div class="form-group {% if form.errors.password %} has-error {% endif %}">
+    {{ form.password.label(class='control-label') }}
+    {{ form.password(class='form-control', placeholder=form.password.label.text) }}
+    {% for error in form.errors.password %}
+      <span class="help-block">{{ error }}</span>
+    {% endfor %}
+  </div>
+
+  <div class="form-group {% if form.errors.repeat_password %} has-error {% endif %}">
+    {{ form.repeat_password.label(class='control-label') }}
+    {{ form.repeat_password(class='form-control', placeholder=form.repeat_password.label.text) }}
+    {% for error in form.errors.repeat_password %}
+      <span class="help-block">{{ error }}</span>
+    {% endfor %}
+  </div>
+
+  <input type="submit" class="btn btn-default btn-primary" value="Sign up">
+</form>
+</div>
+{% endblock %}
