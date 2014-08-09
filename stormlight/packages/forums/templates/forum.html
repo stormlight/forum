@@ -1,0 +1,14 @@
+  {% extends 'base.html' %}
+
+
+{% block  content %}
+<h1>Discussion</h1>
+<h2>Create new forum</h2>
+<form method="POST" role="form">
+  <div class="form-group">
+    {{ form.title.label }}
+    {{ form.title(class='form-control') }}
+  </div>
+</form>
+
+{% endblock %}

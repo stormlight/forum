@@ -1,0 +1,31 @@
+./discussions/*                          forum list
+./discussions/forum/<id>
+
+
+./discussions/forum/<id>
+
+
+
+stormlight/plugins/<plugin>/<package>
+
+stormlight/packages/discussions/templates/forum
+stormlight/packages/discussions/templates/topic
+stormlight/packages/discussions/models/forum.py
+stormlight/packages/discussions/models/topic.py
+
+
+stormlight/plugins/discussions/template
+stormlight/plugins/discussions/models.py
+
+stormlight/plugins/discussions/__init__.py
+stormlight/plugins/discussions/forum
+stormlight/plugins/discussions/topic
+
+stormlight/packages/example
+stormlight/plugins/example.py
+
+
+stormlight/packages/__init__.py
+        plugin = ['example', 'example2']
+stormlight/packages/example
+stormlight/packages/example2

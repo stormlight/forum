@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% macro item(data) %}
+<div>
+    <h2>#{{ data.id }}&nbsp;{{ data.title }}</h2>
+    <p>{{ data.text }}<p>
+    <a href="{{ url_for('discussion.reply', parent_id=data.id) }}">[reply]</a>
+</div>
+{% endmacro %}
+
+{% block  content %}
+<h1>Discussion</h1>
+<ul>
+    <li>
+        {{ item(post) }}
+    </li>
+    <li>
+        <ul>
+        {% for reply in post.replies recursive %}
+            <li>
+                {{ item(reply) }}
+                {% if reply.replies %}
+                <ul>{{ loop(reply.replies) }}</ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    </li>
+</ul>
+
+{% endblock %}

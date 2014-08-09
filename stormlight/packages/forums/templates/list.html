@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block  content %}
+<h1>Discussion</h1>
+{% if forum  %}
+<h2>{{ forum.title }}</h2>
+<p class="lead">{{ forum.description }}</p>
+{% endif %}
+
+<div class="list-group">
+{% for forum in fora %}
+  <a class="list-group-item"  href="{{ url_for('.list', id=forum.id) }}">
+    <h4 class="list-group-item-heading">{{ forum.title }}</h4>
+    <p class="list-group-item-text">{{ forum.description }}</p>
+  </a>
+{% endfor %}
+</div>
+{% if forum.id %}
+  <a class="btn btn-success" href="{{ url_for('forums.create', id=None) }}">create forum</a>
+{% else %}
+  <a class="btn btn-success" href="{{ url_for('forums.create') }}">create forum</a>
+{% endif %}
+{% endblock %}

@@ -28,3 +28,7 @@ REDIS_PREFIX = '_stormlight'
 
 #: SQLAlchemy connection.
 SQLALCHEMY_DATABASE_URI = None
+
+#: WTForms CSRF protection
+CSRF_ENABLED = True
+SECRET_KEY = 'secret'

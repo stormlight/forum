@@ -1,6 +1,7 @@
 
 
-from stormlight import pg
+from stormlight import pg, app
+
 
 
 class User(pg.Model):
