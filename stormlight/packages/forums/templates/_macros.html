@@ -1,3 +1,5 @@
+{% import 'macros/_forms.html' as f %}
+
 {% macro forum_form(form, update) %}
 <form if="forum-form" role="form" method="POST">
   {{ form.csrf_token }}
